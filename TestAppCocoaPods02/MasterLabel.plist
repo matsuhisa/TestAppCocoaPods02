@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>label3</key>
+	<dict>
+		<key>name</key>
+		<string>見たい映画</string>
+		<key>uuid</key>
+		<integer>3</integer>
+	</dict>
+	<key>label2</key>
+	<dict>
+		<key>name</key>
+		<string>仕事</string>
+		<key>uuid</key>
+		<integer>2</integer>
+	</dict>
+	<key>label1</key>
+	<dict>
+		<key>name</key>
+		<string>個人</string>
+		<key>uuid</key>
+		<integer>1</integer>
+	</dict>
+</dict>
+</plist>
