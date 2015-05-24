@@ -50,11 +50,12 @@ class ViewController: UITableViewController {
         println(segue.identifier)
         
         if(segue.identifier == "showAdd") {
-            
+            println("追加")
+
         }
         
         if (segue.identifier == "showEdit") {
-            
+            println("詳細")
             let uitable:UITableView = self.view as! UITableView
             
             if let indexPath = uitable.indexPathForSelectedRow() {
@@ -63,27 +64,6 @@ class ViewController: UITableViewController {
                 
                 (segue.destinationViewController as! EditConroller).memoItem = memo
             }
-            
-            
-            /*
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                var items = Memo.all().find()
-                var memo  = items[indexPath.row] as! Memo
-                
-                println(indexPath.row)
-                println(memo.title)
-                
-                (segue.destinationViewController as! EditConroller).memoItem = memo
-                
-                //let editView: EditConroller = segue.destinationViewController as! EditConroller
-                //var items = Memo.all().find()
-                //var memo  = items[indexPath.row] as! Memo
-                //editView.memoItem = memo
-            }else {
-                
-            }
-            */
-
         }
     }
     

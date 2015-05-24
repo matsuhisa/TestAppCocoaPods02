@@ -46,10 +46,6 @@ class EditConroller:UIViewController {
             memo.updated_at = NSDate()
             
             var saved:Bool  = memo.save()
-            
-            if saved {
-                println("保存")
-            }
         }
     }
     
