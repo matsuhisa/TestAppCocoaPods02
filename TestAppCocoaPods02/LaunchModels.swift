@@ -52,9 +52,10 @@ class LaunchModels {
         var items = Label.all().find()
         for(var i = 0; i < items.count; i++) {
             var label = items[i] as! Label
-            
+            /*
             println(label.name)
             println(label.uuid)
+            */
         }
     }
     
@@ -78,10 +79,11 @@ class LaunchModels {
         var items = Memo.all().find()
         for(var i = 0; i < items.count; i++) {
             var memo = items[i] as! Memo
-            
+/*
             println(memo.title)
             println(memo.created_at)
             println(memo.updated_at)
+*/
         }
     }
 

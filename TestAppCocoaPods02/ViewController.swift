@@ -19,7 +19,7 @@ class ViewController: UITableViewController {
 
             for label in memo.labels {
                 label as! Label
-                println(label.name)
+                //println(label.name)
             }
         }
         
@@ -44,18 +44,18 @@ class ViewController: UITableViewController {
         //performSegueWithIdentifier("showEdit",sender: nil)
     }
     */
-
+    
+    @IBAction func unwindToTop(segue: UIStoryboardSegue) {
+        println(segue.identifier)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         println(segue.identifier)
         
         if(segue.identifier == "showAdd") {
-            println("追加")
-
         }
         
         if (segue.identifier == "showEdit") {
-            println("詳細")
             let uitable:UITableView = self.view as! UITableView
             
             if let indexPath = uitable.indexPathForSelectedRow() {
@@ -88,19 +88,14 @@ class ViewController: UITableViewController {
         return items.count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        
-        
+        let cell  = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         var items = Memo.all().find()
         var memo  = items[indexPath.row] as! Memo
         
         cell.textLabel!.text = memo.title
         return cell
     }
-    
-
     
     // 編集開始時
     override func setEditing(editing: Bool, animated: Bool) {
@@ -110,30 +105,21 @@ class ViewController: UITableViewController {
         let uitable:UITableView = self.view as! UITableView
         uitable.setEditing(editing, animated: true)
         
-        println("edit -------------")
-        
         if editing {
             println("編集中")
         }else {
             println("通常モード")
         }
-        
     }
     
     // 削除処理
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            println("削除")
-            
             var items = Memo.all().find()
             var memo  = items[indexPath.row] as! Memo
             
-            println(memo.title)
-            
             memo.beginWriting().delete().endWriting()
-            
-            
             tableView.reloadData()
         }
     }

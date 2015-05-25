@@ -49,5 +49,11 @@ class EditConroller:UIViewController {
         }
     }
     
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println(segue.identifier)
+    }
+    */
+    
 }
 

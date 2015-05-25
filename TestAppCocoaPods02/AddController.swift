@@ -18,7 +18,7 @@ class AddController:UIViewController {
     func save(sender: AnyObject?) {
         var new_memo:Memo = Memo.create() as! Memo
         new_memo.title = "無題"
-        if (InputTitle.text != nil) {
+        if (InputTitle.text != "") {
             new_memo.title = InputTitle.text
         }
         new_memo.body = InputBody.text
