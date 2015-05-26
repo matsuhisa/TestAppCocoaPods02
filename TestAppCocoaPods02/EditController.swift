@@ -2,6 +2,7 @@
 //  TestAppCocoaPods02
 
 import UIKit
+import Social
 
 class EditConroller:UIViewController {
     
@@ -31,12 +32,29 @@ class EditConroller:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
+
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
+        self.navigationItem.rightBarButtonItem = addButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    func share(sender: AnyObject?) {
+        
+        let activityItem = InputBody.text + " #iPhoneApp"
+        let activityViewController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
+        
+        activityViewController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:Array!, error:NSError!) in
+            if (completed) {
+                // ここに完了後の処理を書く
+                println("完了！")
+            }
+        }
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
     
     func save(sender: AnyObject?) {
         if var memo:Memo = self.memoItem {
@@ -45,7 +63,9 @@ class EditConroller:UIViewController {
             memo.body  = InputBody.text
             memo.updated_at = NSDate()
             
+            memo.beginWriting()
             var saved:Bool  = memo.save()
+            memo.endWriting()
         }
     }
     

@@ -23,8 +23,9 @@ class AddController:UIViewController {
         }
         new_memo.body = InputBody.text
 
-        println(new_memo)
+        new_memo.beginWriting()
         new_memo.save()
+        new_memo.endWriting()
     }
     
     override func didReceiveMemoryWarning() {

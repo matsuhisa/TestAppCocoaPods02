@@ -8,27 +8,30 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let launch = LaunchModels()
-        launch.master_memo_insert()
-        launch.master_label_insert()
-        launch.master_memo_labels_insert()
-        
-        var items = Memo.all().find()
-        for(var i = 0; i < items.count; i++) {
-            var memo = items[i] as! Memo
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()        
 
-            for label in memo.labels {
-                label as! Label
-                //println(label.name)
+        var items = Memo.all().find()
+        self.navigationItem.title = String(items.count)
+        
+        if items.count == 0 {
+            let launch = LaunchModels()
+            launch.master_memo_insert()
+            launch.master_label_insert()
+            launch.master_memo_labels_insert()
+            
+            var items = Memo.all().find()
+            for(var i = 0; i < items.count; i++) {
+                
+                var memo = items[i] as! Memo
+                println("-------------")
+                println(memo.title)
+                for label in memo.labels {
+                    label as! Label
+                    println(label.name)
+                }
+                println("-------------")
             }
         }
-        
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-        /*
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewMemo:")
-        self.navigationItem.rightBarButtonItem = addButton
-        */
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +40,8 @@ class ViewController: UITableViewController {
     
     // MARK: - Segues
 
-    // Cell が選択された場合
-    /*
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        println("Cellが選択された")
-        //performSegueWithIdentifier("showEdit",sender: nil)
-    }
-    */
-    
+
+    // 戻ってくる時の処理
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
         println(segue.identifier)
     }
@@ -55,7 +52,7 @@ class ViewController: UITableViewController {
         if(segue.identifier == "showAdd") {
         }
         
-        if (segue.identifier == "showEdit") {
+        if(segue.identifier == "showEdit") {
             let uitable:UITableView = self.view as! UITableView
             
             if let indexPath = uitable.indexPathForSelectedRow() {
@@ -65,10 +62,6 @@ class ViewController: UITableViewController {
                 (segue.destinationViewController as! EditConroller).memoItem = memo
             }
         }
-    }
-    
-    func insertNewMemo(sender: AnyObject) {
-        println("insertNewMemo")
     }
     
     // MARK: - Table View

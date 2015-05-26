@@ -6,7 +6,7 @@ import UIKit
 import CoreData
 
 class LaunchModels {
-    
+
     private func plist_data(file_name: String) ->NSDictionary{
         let path:String = NSBundle.mainBundle().pathForResource(file_name, ofType: "plist")!
         var masterDataDictionary:NSDictionary = NSDictionary(contentsOfFile: path)!
@@ -14,6 +14,31 @@ class LaunchModels {
         return masterDataDictionary
     }
     
+    func master_memo_labels_insert() {
+        var items = Memo.all().find()
+
+        for(var i = 0; i < items.count; i++) {
+            var memo = items[i] as! Memo
+
+            println("---------------")
+            println(memo.title)
+
+            var labels = Label.all().find()
+            for(var i = 0; i < labels.count; i++) {
+                var label = labels[i] as! Label
+                println("label:" + label.name)
+                memo.addLabels(label)
+                var saved:Bool = memo.save()
+            }
+            //memo.beginWriting()
+            //memo.endWriting()
+
+            println("---------------")
+        }
+    }
+    
+    
+/*
     func master_memo_labels_insert() {
         let app: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context:NSManagedObjectContext = app.managedObjectContext!
@@ -31,7 +56,9 @@ class LaunchModels {
             app.saveContext()
         }
     }
+*/
     
+
     func master_label_insert() {
         var masterData:NSDictionary = self.plist_data("MasterLabel")
         
@@ -58,6 +85,7 @@ class LaunchModels {
             */
         }
     }
+
     
     func master_memo_insert() {
         var masterData:NSDictionary = self.plist_data("MasterMemo")
@@ -72,20 +100,22 @@ class LaunchModels {
             memo.title = item["title"] as! String
             memo.body  = item["body"] as! String
             
-            memo.save()
+            memo.beginWriting()
+            var saved:Bool = memo.save()
+            memo.endWriting()
         }
         
         // debug
         var items = Memo.all().find()
         for(var i = 0; i < items.count; i++) {
             var memo = items[i] as! Memo
-/*
+            /*
             println(memo.title)
             println(memo.created_at)
             println(memo.updated_at)
-*/
+            */
         }
     }
 
-    
+
 }
