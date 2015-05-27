@@ -42,6 +42,7 @@
 		2AC6FBBD6E429234B34F493F /* Pods_TestAppCocoaPods02.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAppCocoaPods02.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB05B6C3FCDE57A8CFA9CC /* Pods-TestAppCocoaPods02Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppCocoaPods02Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppCocoaPods02Tests/Pods-TestAppCocoaPods02Tests.release.xcconfig"; sourceTree = "<group>"; };
 		97E4D11EEF38BBD933C4F12A /* Pods-TestAppCocoaPods02.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppCocoaPods02.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppCocoaPods02/Pods-TestAppCocoaPods02.debug.xcconfig"; sourceTree = "<group>"; };
+		B9077CBB1B1555F30021B121 /* TestAppCocoaPods 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TestAppCocoaPods 2.xcdatamodel"; sourceTree = "<group>"; };
 		B957D3121B02390100AF71D8 /* TestAppCocoaPods02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppCocoaPods02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B957D3161B02390100AF71D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B957D3171B02390100AF71D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -625,9 +626,10 @@
 		B957D3191B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B9077CBB1B1555F30021B121 /* TestAppCocoaPods 2.xcdatamodel */,
 				B957D31A1B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodel */,
 			);
-			currentVersion = B957D31A1B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodel */;
+			currentVersion = B9077CBB1B1555F30021B121 /* TestAppCocoaPods 2.xcdatamodel */;
 			path = TestAppCocoaPods02.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

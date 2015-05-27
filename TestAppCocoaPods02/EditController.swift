@@ -11,6 +11,10 @@ class EditConroller:UIViewController {
     @IBOutlet weak var InputTitle: UITextField!
     @IBOutlet weak var InputBody: UITextView!
     @IBOutlet weak var ButtonSave: UIButton!
+
+    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     
     var memoItem: Memo? {
         didSet {
@@ -68,12 +72,5 @@ class EditConroller:UIViewController {
             memo.endWriting()
         }
     }
-    
-    /*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println(segue.identifier)
-    }
-    */
-    
 }
 

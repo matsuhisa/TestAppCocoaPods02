@@ -9,6 +9,7 @@ class Label: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var uuid: NSNumber
     @NSManaged var color: String
-    @NSManaged var memo: Memo
+    //@NSManaged var memo: Memo
+    @NSManaged var memos: NSMutableSet
 
 }
