@@ -14,6 +14,28 @@ class LaunchModels {
         return masterDataDictionary
     }
     
+    /*
+    func master_memo_labels_insert() {
+    let app: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let context:NSManagedObjectContext = app.managedObjectContext!
+    
+    var items = Memo.all().find()
+    for(var i = 0; i < items.count; i++) {
+    var memo = items[i] as! Memo
+    
+    var items = Label.all().find()
+    for(var i = 0; i < items.count; i++) {
+    var label = items[i] as! Label
+    memo.addLabels(label)
+    }
+    
+    app.saveContext()
+    }
+    }
+    */
+
+
+    
     func master_memo_labels_insert() {
         var items = Memo.all().find()
 
@@ -37,28 +59,33 @@ class LaunchModels {
         }
     }
     
-    
-/*
-    func master_memo_labels_insert() {
-        let app: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context:NSManagedObjectContext = app.managedObjectContext!
+    func master_config_list_insert() {
+        var masterData:NSDictionary = self.plist_data("ConfigList")
         
-        var items = Memo.all().find()
-        for(var i = 0; i < items.count; i++) {
-            var memo = items[i] as! Memo
+        for(var i=1; i<=masterData.count; i++) {
+            let index_name: String = "config" + String(i)
+            var item:AnyObject = masterData[index_name]!
             
-            var items = Label.all().find()
-            for(var i = 0; i < items.count; i++) {
-                var label = items[i] as! Label
-                memo.addLabels(label)
-            }
+            var config:Config = Config.create() as! Config
             
-            app.saveContext()
+            config.name  = item["name"] as! String
+            config.value = item["value"] as! NSNumber
+            
+            config.save()
         }
-    }
-*/
-    
 
+        // debug
+        var items = Config.all().find()
+        for(var i = 0; i < items.count; i++) {
+            var config = items[i] as! Config
+
+            println(config.name)
+            println(config.value)
+
+        }
+    
+    }
+    
     func master_label_insert() {
         var masterData:NSDictionary = self.plist_data("MasterLabel")
         

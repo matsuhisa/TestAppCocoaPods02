@@ -16,6 +16,9 @@ class AddController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UIToolbar は隠す
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        
         ButtonSave.addTarget(self, action: "save:", forControlEvents: .TouchUpInside)
     }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0CD1E3ADA3EC72950FC43069 /* Pods_TestAppCocoaPods02Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE00B1BBF561811F607AFE5 /* Pods_TestAppCocoaPods02Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		47F7953BBB095D12F301E8B8 /* Pods_TestAppCocoaPods02.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6FBBD6E429234B34F493F /* Pods_TestAppCocoaPods02.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B917E9791B1B61BC00F58DE8 /* ConfigList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B917E9781B1B61BC00F58DE8 /* ConfigList.plist */; };
+		B917E97B1B1B626800F58DE8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917E97A1B1B626800F58DE8 /* Config.swift */; };
 		B957D3181B02390100AF71D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B957D3171B02390100AF71D8 /* AppDelegate.swift */; };
 		B957D31B1B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B957D3191B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodeld */; };
 		B957D31D1B02390100AF71D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B957D31C1B02390100AF71D8 /* ViewController.swift */; };
@@ -43,6 +45,9 @@
 		86EB05B6C3FCDE57A8CFA9CC /* Pods-TestAppCocoaPods02Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppCocoaPods02Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppCocoaPods02Tests/Pods-TestAppCocoaPods02Tests.release.xcconfig"; sourceTree = "<group>"; };
 		97E4D11EEF38BBD933C4F12A /* Pods-TestAppCocoaPods02.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppCocoaPods02.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppCocoaPods02/Pods-TestAppCocoaPods02.debug.xcconfig"; sourceTree = "<group>"; };
 		B9077CBB1B1555F30021B121 /* TestAppCocoaPods 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TestAppCocoaPods 2.xcdatamodel"; sourceTree = "<group>"; };
+		B917E9771B1B613700F58DE8 /* TestAppCocoaPods 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TestAppCocoaPods 3.xcdatamodel"; sourceTree = "<group>"; };
+		B917E9781B1B61BC00F58DE8 /* ConfigList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigList.plist; sourceTree = "<group>"; };
+		B917E97A1B1B626800F58DE8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B957D3121B02390100AF71D8 /* TestAppCocoaPods02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppCocoaPods02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B957D3161B02390100AF71D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B957D3171B02390100AF71D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +157,7 @@
 				B957D3161B02390100AF71D8 /* Info.plist */,
 				B9948AAF1B023F3100F9D484 /* MasterMemo.plist */,
 				B9948AB11B023F4100F9D484 /* MasterLabel.plist */,
+				B917E9781B1B61BC00F58DE8 /* ConfigList.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 		B9F4B8E01B1067DE0071A11F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B917E97A1B1B626800F58DE8 /* Config.swift */,
 				B9948AB71B02422E00F9D484 /* Label.swift */,
 				B9948AB51B0241AE00F9D484 /* Memo.swift */,
 				B9F4B8E11B1068AE0071A11F /* Models.swift */,
@@ -285,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B917E9791B1B61BC00F58DE8 /* ConfigList.plist in Resources */,
 				B9948AB01B023F3100F9D484 /* MasterMemo.plist in Resources */,
 				B957D3201B02390100AF71D8 /* Main.storyboard in Resources */,
 				B957D3251B02390100AF71D8 /* LaunchScreen.xib in Resources */,
@@ -404,6 +412,7 @@
 				B960BD181B11B84F00C6FD9E /* AddController.swift in Sources */,
 				B9C264B41B107A5C00F2ACBB /* EditController.swift in Sources */,
 				B957D3181B02390100AF71D8 /* AppDelegate.swift in Sources */,
+				B917E97B1B1B626800F58DE8 /* Config.swift in Sources */,
 				B9948ABB1B02499000F9D484 /* LaunchModels.swift in Sources */,
 				B957D31B1B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodeld in Sources */,
 				B9948AB81B02422E00F9D484 /* Label.swift in Sources */,
@@ -626,10 +635,11 @@
 		B957D3191B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B917E9771B1B613700F58DE8 /* TestAppCocoaPods 3.xcdatamodel */,
 				B9077CBB1B1555F30021B121 /* TestAppCocoaPods 2.xcdatamodel */,
 				B957D31A1B02390100AF71D8 /* TestAppCocoaPods02.xcdatamodel */,
 			);
-			currentVersion = B9077CBB1B1555F30021B121 /* TestAppCocoaPods 2.xcdatamodel */;
+			currentVersion = B917E9771B1B613700F58DE8 /* TestAppCocoaPods 3.xcdatamodel */;
 			path = TestAppCocoaPods02.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
