@@ -44,7 +44,6 @@ class ViewController: UITableViewController {
     
     // MARK: - Segues
 
-
     // 戻ってくる時の処理
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
         println(segue.identifier)
@@ -53,8 +52,6 @@ class ViewController: UITableViewController {
     
     // 画面遷移
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println(segue.identifier)
-        
         if(segue.identifier == "showAdd") {
         }
         
@@ -83,6 +80,7 @@ class ViewController: UITableViewController {
             target: self,
             action: "dataSortTypeSelect:"
         )
+        
         // UIToolbar を設定
         self.toolbarItems = [myUIBarButtonGreen]
         self.navigationController?.setToolbarHidden(false, animated: false)
@@ -92,18 +90,54 @@ class ViewController: UITableViewController {
     }
     
     func dataSortTypeSelect(sender: UIBarButtonItem) {
+        let uitable:UITableView = self.view as! UITableView
+        
         var alert = UIAlertController(title: "並び替え", message: "メッセージ", preferredStyle: .ActionSheet)
         
+        // 1
         alert.addAction(UIAlertAction(title: "作成日順", style: UIAlertActionStyle.Default) {
-            action in println("作成日順")
+            action in
+            var configs = Config.by("name", equalTo: "sort_list_type").find()
+            var config  = configs[0] as! Config
+            
+            config.value = 1
+            config.beginWriting()
+            config.save()
+            config.endWriting()
+            
+            uitable.reloadData()
+            println("作成日順")
         })
 
+        // 2
         alert.addAction(UIAlertAction(title: "編集日順", style: UIAlertActionStyle.Default) {
-            action in println("編集日順")
+            action in
+            var configs = Config.by("name", equalTo: "sort_list_type").find()
+            var config  = configs[0] as! Config
+            
+            config.value = 2
+            config.beginWriting()
+            config.save()
+            config.endWriting()
+            
+            uitable.reloadData()
+            println("編集日順")
         })
 
+        // 3
         alert.addAction(UIAlertAction(title: "あいうえお順", style: UIAlertActionStyle.Default) {
-            action in println("あいうえお順")
+            action in
+            var configs = Config.by("name", equalTo: "sort_list_type").find()
+            var config  = configs[0] as! Config
+            
+            config.value = 3
+            config.beginWriting()
+            config.save()
+            config.endWriting()
+            
+            uitable.reloadData()
+            println("あいうえお順")
+            
         })
         
         alert.addAction(UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.Cancel) {
@@ -123,12 +157,35 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        println("tableView")
-        
+
         let cell  = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        //var items = Memo.all().find()
-        var items = Memo.sorted(by: "created_at", ascending: false).all().find()
+
+        var items = Memo.all().find()
+        
+        var configs = Config.by("name", equalTo: "sort_list_type").find()
+        var config  = configs[0] as! Config
+        
+        var sort_type_number = config.value
+        
+        println("-------------")
+        println(sort_type_number)
+        println("-------------")
+        
+        switch(sort_type_number) {
+            case 1:
+                items = Memo.sorted(by: "created_at", ascending: false).all().find()
+                break
+            case 2:
+                items = Memo.sorted(by: "updated_at", ascending: false).all().find()
+                break
+            case 3:
+                items = Memo.sorted(by: "title", ascending: true).all().find()
+                break
+            default:
+                items = Memo.all().find()
+                break
+        }
+
         var memo  = items[indexPath.row] as! Memo
         
         cell.textLabel!.text = memo.title

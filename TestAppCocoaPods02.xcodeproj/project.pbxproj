@@ -137,11 +137,11 @@
 			children = (
 				B9C264E51B10CB7400F2ACBB /* Extensions */,
 				B960BD171B11B84F00C6FD9E /* AddController.swift */,
+				B957D31C1B02390100AF71D8 /* ViewController.swift */,
 				B9C264B31B107A5C00F2ACBB /* EditController.swift */,
 				B9F4B8E01B1067DE0071A11F /* Model */,
 				B9948AB91B02496300F9D484 /* LaunchModel */,
 				B957D3171B02390100AF71D8 /* AppDelegate.swift */,
-				B957D31C1B02390100AF71D8 /* ViewController.swift */,
 				B957D31E1B02390100AF71D8 /* Main.storyboard */,
 				B957D3211B02390100AF71D8 /* Images.xcassets */,
 				B957D3231B02390100AF71D8 /* LaunchScreen.xib */,

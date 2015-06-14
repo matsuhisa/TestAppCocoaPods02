@@ -19,10 +19,11 @@ class AddController:UIViewController {
         // UIToolbar は隠す
         self.navigationController?.setToolbarHidden(true, animated: false)
         
+        //
         ButtonSave.addTarget(self, action: "save:", forControlEvents: .TouchUpInside)
     }
 
-
+    // 保存
     func save(sender: AnyObject?) {
         var new_memo:Memo = Memo.create() as! Memo
         new_memo.title = "無題"
